@@ -1,0 +1,218 @@
+--员工基本信息表（emp）
+create table emp
+(
+    empnum      varchar2(20) not null primary key,
+    empname     varchar2(20) not null,
+    sex         number       not null,
+    birthday    date         not null,
+    nation      varchar2(20) not null,
+    nativeplace varchar2(20) not null,
+    ident       varchar2(20) not null,
+    deptname    varchar2(20) not null,
+    marriage    number       not null,
+    address     varchar2(200),
+    policy      number       not null,
+    phone       varchar2(20) not null,
+    degree      number       not null,
+    college     varchar2(40) not null,
+    duty        varchar2(20),
+    postname    number       not null,
+    remark      varchar2(400)
+);
+--表备注
+comment on table emp is '员工基本信息表';
+--列备注
+comment on column emp.empnum is '员工编号';
+comment on column emp.empname is '员工姓名';
+comment on column emp.sex is '性别';
+comment on column emp.birthday is '出生日期';
+comment on column emp.nation is '民族';
+comment on column emp.nativeplace is '户籍';
+comment on column emp.ident is '身份证号';
+comment on column emp.deptname is '所属部门';
+comment on column emp.marriage is '婚姻状况';
+comment on column emp.address is '地址';
+comment on column emp.policy is '政治面貌';
+comment on column emp.phone is '电话';
+comment on column emp.degree is '学历';
+comment on column emp.college is '毕业学校';
+comment on column emp.duty is '职务';
+comment on column emp.postname is '在职类别';
+comment on column emp.remark is '备注';
+
+select *
+from emp;
+--序列主键自增
+create sequence seq_emp
+    increment by 1
+    start with 1001
+    minvalue 1001
+    maxvalue 9999
+    nocycle
+    nocache;
+--添加测试数据
+insert into emp(empnum, empname, sex, birthday, nation, nativeplace, ident, deptname, marriage, address, policy, phone,
+                degree, college, duty, postname, remark)
+VALUES (seq_emp.nextval, '张三', 1, to_date('1995-1-18', 'yyyy-mm-dd'), '汉', '内蒙古', '146158461543531856', '技术部', 0, '大兴区',
+        0, '13789045612', 0, '北京大学', '程序员', 1, '');
+insert into emp(empnum, empname, sex, birthday, nation, nativeplace, ident, deptname, marriage, address, policy, phone,
+                degree, college, duty, postname, remark)
+VALUES (seq_emp.nextval, '王舞', 0, to_date('2001-3-14', 'yyyy-mm-dd'), '汉', '北京', '14615846154353645', '技术部', 1, '朝阳区',
+        1, '16982105612', 2, '清华大学', '程序员', 2, '');
+insert into emp(empnum, empname, sex, birthday, nation, nativeplace, ident, deptname, marriage, address, policy, phone,
+                degree, college, duty, postname, remark)
+VALUES (seq_emp.nextval, '王克', 1, to_date('2011-5-11', 'yyyy-mm-dd'), '汉', '北京', '14615846154353645', '技术部', 1, '朝阳区',
+        1, '16982105612', 2, '清华大学', '程序员', 2, '');
+insert into emp(empnum, empname, sex, birthday, nation, nativeplace, ident, deptname, marriage, address, policy, phone,
+                degree, college, duty, postname, remark)
+VALUES (seq_emp.nextval, '张三', 1, to_date('1995-1-18', 'yyyy-mm-dd'), '汉', '内蒙古', '146158461543531856', '技术部', 0, '大兴区',
+        0, '13789045612', 0, '北京大学', '程序员', 1, '');
+insert into emp(empnum, empname, sex, birthday, nation, nativeplace, ident, deptname, marriage, address, policy, phone,
+                degree, college, duty, postname, remark)
+VALUES (seq_emp.nextval, '王舞', 0, to_date('2001-3-14', 'yyyy-mm-dd'), '汉', '北京', '14615846154353645', '技术部', 1, '朝阳区',
+        1, '16982105612', 2, '清华大学', '程序员', 2, '');
+insert into emp(empnum, empname, sex, birthday, nation, nativeplace, ident, deptname, marriage, address, policy, phone,
+                degree, college, duty, postname, remark)
+VALUES (seq_emp.nextval, '王克', 1, to_date('2011-5-11', 'yyyy-mm-dd'), '汉', '北京', '14615846154353645', '技术部', 1, '朝阳区',
+        1, '16982105612', 2, '清华大学', '程序员', 2, '');
+insert into emp(empnum, empname, sex, birthday, nation, nativeplace, ident, deptname, marriage, address, policy, phone,
+                degree, college, duty, postname, remark)
+VALUES (seq_emp.nextval, '张三', 1, to_date('1995-1-18', 'yyyy-mm-dd'), '汉', '内蒙古', '146158461543531856', '技术部', 0, '大兴区',
+        0, '13789045612', 0, '北京大学', '程序员', 1, '');
+insert into emp(empnum, empname, sex, birthday, nation, nativeplace, ident, deptname, marriage, address, policy, phone,
+                degree, college, duty, postname, remark)
+VALUES (seq_emp.nextval, '王舞', 0, to_date('2001-3-14', 'yyyy-mm-dd'), '汉', '北京', '14615846154353645', '技术部', 1, '朝阳区',
+        1, '16982105612', 2, '清华大学', '程序员', 2, '');
+insert into emp(empnum, empname, sex, birthday, nation, nativeplace, ident, deptname, marriage, address, policy, phone,
+                degree, college, duty, postname, remark)
+VALUES (seq_emp.nextval, '王克', 1, to_date('2011-5-11', 'yyyy-mm-dd'), '汉', '北京', '14615846154353645', '技术部', 1, '朝阳区',
+        1, '16982105612', 2, '清华大学', '程序员', 2, '');
+insert into emp(empnum, empname, sex, birthday, nation, nativeplace, ident, deptname, marriage, address, policy, phone,
+                degree, college, duty, postname, remark)
+VALUES (seq_emp.nextval, '王克', 1, to_date('2011-5-11', 'yyyy-mm-dd'), '汉', '北京', '14615846154353645', '技术部', 1, '朝阳区',
+        1, '16982105612', 2, '清华大学', '程序员', 2, '');
+----------------------------------
+create table ADMIN
+(
+    id       number primary key not null,
+    USERNAME varchar2(20)       not null,
+    PASSWORD varchar2(20)       not null
+);
+select *
+from ADMIN;
+create sequence a_admin
+    increment by 1
+    start with 1
+    minvalue 1
+    maxvalue 999
+    nocycle
+    nocache;
+insert into ADMIN(id, username, password)
+VALUES (a_admin.nextval, 'admin', '123456');
+insert into ADMIN(id, username, password)
+VALUES (a_admin.nextval, 'wangwu', '123123');
+----------------------------------
+create table DEPT
+(
+    ID           number primary key not null,
+    DEPT_ID      number             not null,
+    dept_name    varchar2(20)       not null,
+    dept_manager varchar2(20)       not null,
+    dept_numbers varchar2(20)       not null
+);
+select *
+from DEPT;
+create sequence d_dept
+    increment by 1
+    start with 1
+    minvalue 1
+    maxvalue 999
+    nocycle
+    nocache;
+
+insert into DEPT(id, dept_id, "dept _name", "dept _manager", "dept _numbers")
+VALUES (d_dept.nextval, 1001, '开发部', '刘美丽', 1);
+insert into DEPT(id, dept_id, "dept _name", "dept _manager", "dept _numbers")
+VALUES (d_dept.nextval, 1001, '销售部', '张美丽', 2);
+insert into DEPT(id, dept_id, "dept _name", "dept _manager", "dept _numbers")
+VALUES (d_dept.nextval, 1001, '市场部', '高美丽', 3);
+-----------------------------
+create table post
+(
+    id        number primary key not null,
+    EMPNUM    varchar2(20)       not null,
+    dept_id   number             not null,
+    EMPNAME   varchar2(20)       not null,
+    POST_DUTY varchar2(20)       not null,
+    post_name varchar2(20)       not null
+);
+select *
+from POST;
+create sequence p_post
+    increment by 1
+    start with 1
+    minvalue 1
+    maxvalue 999
+    nocycle
+    nocache;
+
+insert into POST(id, empnum, "dept _id", empname, post_duty, "post _name")
+VALUES (p_post.nextval, '1001', 1, '周莉', '程序员', '开发');
+insert into POST(id, empnum, "dept _id", empname, post_duty, "post _name")
+VALUES (p_post.nextval, '1002', 2, '王菲', '销售员', '销售经理');
+insert into POST(id, empnum, "dept _id", empname, post_duty, "post _name")
+VALUES (p_post.nextval, '1003', 3, '赵丽颖', '市场', '市场经理');
+---------------------------------------
+create table pay
+(
+    id           number primary key not null,
+    EMPNUM       varchar2(20)       not null,
+    BASEPAY      number             not null,
+    WORKPRICE    number             not null,
+    MESS         number             not null,
+    TRAFFIC      number             not null,
+    SHOULDPAY    number             not null,
+    SHOULDDEDUCT number             not null,
+    PAY          number             not null
+);
+select *
+from PAY;
+
+create sequence p_pay
+    increment by 1
+    start with 1
+    minvalue 1
+    maxvalue 999
+    nocycle
+    nocache;
+
+insert into PAY (ID, EMPNUM, BASEPAY, WORKPRICE, MESS, TRAFFIC, SHOULDPAY, SHOULDDEDUCT, PAY)
+values (p_pay.nextval, '1001', 3000, 200, 200, 200, 300, 0, 3900);
+insert into PAY (ID, EMPNUM, BASEPAY, WORKPRICE, MESS, TRAFFIC, SHOULDPAY, SHOULDDEDUCT, PAY)
+values (p_pay.nextval, '1002', 3000, 0, 200, 200, 300, 0, 3700);
+---------------------------------
+select *
+from LEAVE;
+create table LEAVE
+(
+    ID          number primary key not null,
+    EMPNUM      varchar2(20)       not null,
+    STARTDATE   date               not null,
+    ENDDATE     date               not null,
+    ALLDATE     number             not null,
+    DEPTMANAGER varchar2(20)       not null,
+    REASON      number             not null,
+    APPLYDATE   date               not null,
+    CANCELDATE  date               not null,
+    DID         number             not null
+);
+INSERT INTO SYSTEM.LEAVE (ID, EMPNUM, STARTDATE, ENDDATE, ALLDATE, DEPTMANAGER, REASON, APPLYDATE, CANCELDATE, DID)
+VALUES (1, '12345', TO_DATE('2020-01-10 00:00:00', 'YYYY-MM-DD HH24:MI:SS'),
+        TO_DATE('2020-01-15 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 6, '1', 1,
+        TO_DATE('2020-01-09 00:00:00', 'YYYY-MM-DD HH24:MI:SS'),
+        TO_DATE('2020-01-16 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 1001);
+INSERT INTO SYSTEM.LEAVE (ID, EMPNUM, STARTDATE, ENDDATE, ALLDATE, DEPTMANAGER, REASON, APPLYDATE, CANCELDATE, DID)
+VALUES (2, '12346', TO_DATE('2020-04-30 00:00:00', 'YYYY-MM-DD HH24:MI:SS'),
+        TO_DATE('2020-05-10 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 4, '2', 2,
+        TO_DATE('2020-04-29 00:00:00', 'YYYY-MM-DD HH24:MI:SS'),
+        TO_DATE('2020-05-11 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), 1002);
